@@ -2,7 +2,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  dynamic_security_testing:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -21,3 +21,13 @@ jobs:
     - name : Stop containers
       if : always()
       run : docker-compose -f "docker-compose.yml" down
+
+  
+  code_security_semgrep:
+      runs-on: ubuntu-latest
+      name: Semgrep tutorial
+      steps:
+        - uses: actions/checkout@v2
+        - name : code Security
+          run: pip3 install semgrep && semgrep --config "p/ci" --error
+          shell: bash
