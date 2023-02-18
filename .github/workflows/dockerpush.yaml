@@ -31,6 +31,20 @@ jobs:
             push: true
             tags: ${{ secrets.DOCKER_USERNAME }}/djangocicd:latest
 
+    sshtoserver:
+      name: shh to server
+      runs-on: ubuntu-latest
+      steps:
+        - name: executing remote ssh commands using ssh key
+          uses: appleboy/ssh-action@v0.1.7
+          with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY }}
+            port: ${{ secrets.PORT }}
+            script : sudo update.sh
+
+
         
 
 
