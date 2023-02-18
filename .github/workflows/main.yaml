@@ -55,7 +55,6 @@ jobs:
           target: "http://localhost"
           token: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name : Stop containers
         if : always()
         run : docker-compose -f "docker-compose.yml" down
