@@ -6,6 +6,7 @@ import sys
 #comment
 # dalla sala
 # chal ja bhai 
+# lafzo se jo the pareh 
 
 def main():
     """Run administrative tasks."""
