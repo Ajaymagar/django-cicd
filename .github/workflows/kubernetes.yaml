@@ -21,6 +21,7 @@ jobs:
     - name: Update GKE deployment
       run: |
           gcloud container clusters get-credentials github-node --region=asia-south1-a
+          gcloud components install gke-gcloud-auth-plugin
           kubectl set image deployment/github-actions your-container-name=opensecurity/mobile-security-framework-mobsf:latest
 
 
