@@ -26,3 +26,5 @@ CMD ["python", "manage.py" , "runserver"]
 
 #pata nahi aise jhi
 
+# chal to gaya
+

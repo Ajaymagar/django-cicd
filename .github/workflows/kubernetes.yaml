@@ -22,7 +22,7 @@ jobs:
       run: |
           gcloud container clusters get-credentials github-node --region=asia-south1-a
           gcloud components install gke-gcloud-auth-plugin
-          kubectl create deployment nginx-deployment --image=nginx
+          kubectl apply -f k8s.yaml
 
   
 
