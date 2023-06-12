@@ -23,14 +23,14 @@ jobs:
       run : docker-compose -f "docker-compose.yml" down
 
   
-  # code_security_semgrep:
-  #     runs-on: ubuntu-latest
-  #     name: Semgrep tutorial
-  #     steps:
-  #       - uses: actions/checkout@v2
-  #       - name : code Security
-  #         run: pip3 install semgrep && semgrep  --config "auto"  --error
-  #         shell: bash
+  code_security_semgrep:
+      runs-on: ubuntu-latest
+      name: Semgrep tutorial
+      steps:
+        - uses: actions/checkout@v2
+        - name : code Security
+          run: pip3 install semgrep && semgrep  --config "auto"  --error
+          shell: bash
   
   burp_ka_scanner:
       runs-on: ubuntu-latest

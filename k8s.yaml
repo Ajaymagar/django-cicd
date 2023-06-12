@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: djangoboy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: djangoboy
+  template:
+    metadata:
+      labels:
+        app: djangoboy
+    spec:
+      containers:
+      - name: djangoboy
+        image: opensecurity/mobile-security-framework-mobsf:latest
+        ports:
+        - containerPort: 8000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: djangoboy
+spec:
+  type: ClusterIP
+  selector:
+    app: djangoboy
+  ports:
+  - port: 8086
+    targetPort: 8000

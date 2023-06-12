@@ -1,0 +1,31 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.3.0
+      with:
+          project_id: omkar-cloud-2
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+
+
+    - name: Update GKE deployment
+      run: |
+          gcloud container clusters get-credentials github-node --region=asia-south1-a
+          kubectl set image deployment/github-actions your-container-name=opensecurity/mobile-security-framework-mobsf:latest
+
+
+  
+
+  
+
+
