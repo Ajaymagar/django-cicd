@@ -8,7 +8,8 @@ import sys
 # chal ja bhai 
 # lafzo se jo the pareh 
 # tere mere bich me darmiyas
-# bacche ki jan lenge ye 
+# bacche ki jan lenge ye
+# lode lagne wala he 
 
 def main():
     """Run administrative tasks."""
